@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RenderRazorInConsoleApp.Core
+﻿namespace RenderRazorInConsoleApp.Core
 {
-    class Model
+    public class Model
     {
     }
 }
