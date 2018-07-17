@@ -9,15 +9,16 @@ using RenderRazorInConsoleApp.Core;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace RenderRazorInConsoleApp.Cli
 {
     public class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var renderer = GetRenderer();
-            var html = renderer.RenderViewToStringAsync("/View.cshtml", new Model()).GetAwaiter().GetResult();
+            var html = await renderer.RenderViewToStringAsync("/View.cshtml", new Model());
             System.Console.Write(html);
             System.Console.ReadKey();
         }
