@@ -18,7 +18,7 @@ namespace RenderRazorInConsoleApp.Cli
     {
         static void Main(string[] args)
         {
-            var serviceScopeFactory = InitializeServices();
+            var serviceScopeFactory = InitializeServices(@"C:\Projects\RenderRazorInConsoleApp\src\RenderRazorInConsoleApp.Core");
             var content = RenderViewAsync(serviceScopeFactory).Result;
 
             Console.WriteLine(content);
@@ -26,8 +26,7 @@ namespace RenderRazorInConsoleApp.Cli
         }
 
         public static IServiceScopeFactory InitializeServices(string customApplicationBasePath = null)
-        {
-            // Initialize the necessary services
+        {            
             var services = new ServiceCollection();
             ConfigureDefaultServices(services, customApplicationBasePath);
            
@@ -43,10 +42,10 @@ namespace RenderRazorInConsoleApp.Cli
 
                 var model = new RenderRazorInConsoleApp.Core.Model
                 {
-
+                    ClassName = "Foo"
                 };
 
-                return helper.RenderViewToStringAsync(@"View.cshtml", model);
+                return helper.RenderViewToStringAsync(@"~/View.cshtml", model);
             }
         }
 

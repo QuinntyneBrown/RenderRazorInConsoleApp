@@ -14,10 +14,4 @@
     <ProjectReference Include="..\RenderRazorInConsoleApp.Core\RenderRazorInConsoleApp.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="View.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
