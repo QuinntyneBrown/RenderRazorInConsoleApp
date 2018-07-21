@@ -22,6 +22,7 @@ namespace RenderRazorInConsoleApp.Cli
             var content = RenderViewAsync(serviceScopeFactory).Result;
 
             Console.WriteLine(content);
+            Console.ReadLine();
         }
 
         public static IServiceScopeFactory InitializeServices(string customApplicationBasePath = null)
@@ -45,7 +46,7 @@ namespace RenderRazorInConsoleApp.Cli
 
                 };
 
-                return helper.RenderViewToStringAsync("View.cshtml", model);
+                return helper.RenderViewToStringAsync(@"View.cshtml", model);
             }
         }
 
