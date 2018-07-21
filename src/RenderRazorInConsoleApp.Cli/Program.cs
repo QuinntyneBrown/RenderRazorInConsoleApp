@@ -11,15 +11,17 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using static System.IO.Directory;
+using static System.Environment;
 
 namespace RenderRazorInConsoleApp.Cli
 {
     public class Program
     {
         static void Main(string[] args)
-        {                        
+        {            
 #if DEBUG
-            var serviceScopeFactory = InitializeServices(@"C:\Projects\RenderRazorInConsoleApp\src\RenderRazorInConsoleApp.Core");
+            var serviceScopeFactory = InitializeServices($"{GetParent(CurrentDirectory)}\\RenderRazorInConsoleApp.Core");
 #else
             var serviceScopeFactory = InitializeServices(); 
 #endif
