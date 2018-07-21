@@ -17,8 +17,13 @@ namespace RenderRazorInConsoleApp.Cli
     public class Program
     {
         static void Main(string[] args)
-        {
+        {                        
+#if DEBUG
             var serviceScopeFactory = InitializeServices(@"C:\Projects\RenderRazorInConsoleApp\src\RenderRazorInConsoleApp.Core");
+#else
+            var serviceScopeFactory = InitializeServices(); 
+#endif
+
             var content = RenderViewAsync(serviceScopeFactory).Result;
 
             Console.WriteLine(content);
